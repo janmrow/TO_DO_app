@@ -7,5 +7,14 @@ RSpec.describe "Tasks", type: :request do
         visit tasks_path
         page.should have_content 'read a book'
       end
+
+      it "creates a new tas" do
+        visit tasks_path
+        fill_in 'Task', with: 'walk with dog'
+        click_button 'Create'
+
+        current_path == tasks_path
+        page.should have_content 'walk with dog'
+      end
   end
 end
