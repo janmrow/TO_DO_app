@@ -7,6 +7,7 @@
   <li>
     <b><%= task.task %> - </b>
     <%= link_to 'Edit', edit_task_path(task) %>
+    <%= link_to 'Delete', task, method: 'delete' %>
   </li>
   <% end %>
 </ul>

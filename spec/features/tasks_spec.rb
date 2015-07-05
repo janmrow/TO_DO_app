@@ -48,4 +48,14 @@ RSpec.describe "Tasks", type: :request do
       expect(page).to have_content 'There was an error.'
     end
   end
+
+  describe "DELETE /tasks" do
+    it "should delete a task" do 
+      visit tasks_path
+      click_link 'Delete'
+
+      expect(page).to have_content 'Task deleted.'
+      expect(page).to have_no_content 'read a book'
+    end
+  end
 end
